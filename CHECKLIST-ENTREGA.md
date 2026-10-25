@@ -11,35 +11,27 @@ Repo: https://github.com/daniellarexx/Odd-Ateliervet
 | 2 | CRUD crear / listar / editar / eliminar citas | **Hecho** |
 | 3 | Validaciones + paginación máximo 10 por página | **Hecho** |
 | 4 | Pruebas automatizadas (`manage.py test citas` → 6 OK) + verificación en navegador | **Hecho** |
-| 5 | Repositorio GitHub con el código + URL en el documento de entrega | **Pendiente de push** — `origin` = https://github.com/daniellarexx/Odd-Ateliervet.git · commit local `b4e0c9e` listo · falta `git push -u origin main` con credenciales de `daniellarexx` |
+| 5 | Repositorio GitHub con el código + URL en el documento de entrega | **Hecho** — push `main` OK · commit `cfa3875f11fb9f47983ef4286388dc6190b98883` · URL https://github.com/daniellarexx/Odd-Ateliervet · verificados `manage.py` y `citas/` en el remoto |
 | 6 | ZIP del proyecto completo sin `.venv` / secretos / `.env` con contraseñas | **Hecho** (`odd-atelier-vet.zip`) |
 | 7 | `README.md` con instalación, MySQL, ejecución Django y pruebas | **Hecho** |
-| 8 | Documento de entrega: nombre de evidencia, ID/proyecto, enlace GitHub | **Hecho** (URL real escrita; código aún no visible en GitHub hasta el push) |
+| 8 | Documento de entrega: nombre de evidencia, ID/proyecto, enlace GitHub | **Hecho** (URL real; código visible en GitHub) |
 
 ## Demo local
 
 - http://127.0.0.1:8000/
 - http://127.0.0.1:8000/citas/
 
-## Completar ítem 5 (en tu PC, con sesión GitHub)
+## Ítem 5 — completado (Sofia / Windows)
 
-```bash
-cd /ruta/a/base-datos-Odd-Atelier-Vet
-git remote -v
-# origin https://github.com/daniellarexx/Odd-Ateliervet.git
-
-gh auth login
-# o: git push con PAT como contraseña HTTPS
-
-git push -u origin main
+```text
+Repo local: C:\Users\danie\Desktop\Odd-Ateliervet-repo
+Remote:     https://github.com/daniellarexx/Odd-Ateliervet.git
+Branch:     main
+Commit:     cfa3875f11fb9f47983ef4286388dc6190b98883
+Push:       d2e8937..cfa3875  main -> main (non-force)
 ```
 
-Errores vistos en el agente (no inventados):
-- HTTPS: `fatal: could not read Username for 'https://github.com': No such device or address`
-- SSH: `Permission denied (publickey).`
-- `gh auth status`: not logged into any GitHub hosts
-
-No se usó force-push. El merge conserva el upload HTML en `legacy-html/`.
+HTML previo conservado en `legacy-html/`. Sin `.env` de secretos; sí `.env.example`.
 
 ## Qué NO está en MySQL
 
