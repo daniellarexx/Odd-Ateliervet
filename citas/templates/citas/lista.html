@@ -1,0 +1,69 @@
+{% extends "citas/base.html" %}
+{% block citas_title %}Citas · Odd Atelier Vet{% endblock %}
+{% block citas_content %}
+<section class="card">
+    <div class="card-header">
+        <div>
+            <h2>Gestión de citas</h2>
+            <p>Agenda veterinaria · {{ total }} registro{{ total|pluralize:"s" }} · 10 por página</p>
+        </div>
+        <a class="btn btn-primary" href="{% url 'citas:crear' %}">
+            <i class="fa-solid fa-plus"></i> Nueva cita
+        </a>
+    </div>
+
+    {% if citas %}
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Mascota</th>
+                    <th>Propietario</th>
+                    <th>Fecha</th>
+                    <th>Hora</th>
+                    <th>Motivo</th>
+                    <th>Estado</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for cita in citas %}
+                <tr>
+                    <td>{{ cita.mascota }}</td>
+                    <td>{{ cita.propietario }}</td>
+                    <td>{{ cita.fecha|date:"d/m/Y" }}</td>
+                    <td>{{ cita.hora|time:"H:i" }}</td>
+                    <td>{{ cita.motivo }}</td>
+                    <td><span class="badge-mysql">{{ cita.estado }}</span></td>
+                    <td class="actions">
+                        <a href="{% url 'citas:editar' cita.pk %}">Editar</a>
+                        <a class="danger" href="{% url 'citas:eliminar' cita.pk %}" style="color:var(--danger);font-weight:700;">Eliminar</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    {% if page_obj.paginator.num_pages > 1 %}
+    <div class="pagination">
+        {% if page_obj.has_previous %}
+        <a class="btn btn-secondary" href="?page={{ page_obj.previous_page_number }}">Anterior</a>
+        {% endif %}
+        <span>Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}</span>
+        {% if page_obj.has_next %}
+        <a class="btn btn-secondary" href="?page={{ page_obj.next_page_number }}">Siguiente</a>
+        {% endif %}
+    </div>
+    {% endif %}
+    {% else %}
+    <div class="empty-state" style="padding:40px;text-align:center;">
+        <div class="empty-state-inner" style="display:flex;flex-direction:column;align-items:center;gap:8px;">
+            <strong>No hay citas en MySQL</strong>
+            <span style="color:#777;">Usa “Nueva cita” para registrar la primera.</span>
+            <a class="btn btn-primary" href="{% url 'citas:crear' %}">Registrar cita</a>
+        </div>
+    </div>
+    {% endif %}
+</section>
+{% endblock %}

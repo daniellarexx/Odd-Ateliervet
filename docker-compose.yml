@@ -1,0 +1,22 @@
+services:
+  db:
+    image: mysql:8.0
+    container_name: odd_atelier_mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-odd_atelier_vet}
+      MYSQL_USER: ${MYSQL_USER:-odd_user}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-cambiar_esta_clave}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-cambiar_root_clave}
+    ports:
+      - "${MYSQL_PORT:-3307}:3306"
+    volumes:
+      - odd_mysql_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "-uroot", "-p${MYSQL_ROOT_PASSWORD:-cambiar_root_clave}"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+volumes:
+  odd_mysql_data:

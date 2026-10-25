@@ -1,0 +1,26 @@
+{% extends "citas/base.html" %}
+{% block citas_title %}Eliminar cita · Odd Atelier Vet{% endblock %}
+{% block citas_content %}
+<section class="card">
+    <div class="card-header">
+        <div>
+            <h2>Confirmar eliminación</h2>
+            <p>La eliminación solo ocurre con POST (no con un enlace GET).</p>
+        </div>
+    </div>
+    <p>
+        ¿Eliminar la cita de <strong>{{ cita.mascota }}</strong>
+        (propietario <strong>{{ cita.propietario }}</strong>)
+        del <strong>{{ cita.fecha|date:"d/m/Y" }}</strong>
+        a las <strong>{{ cita.hora|time:"H:i" }}</strong>?
+    </p>
+    <p><span class="badge-mysql">{{ cita.estado }}</span> · {{ cita.motivo }}</p>
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-actions">
+            <a class="btn btn-secondary" href="{% url 'citas:lista' %}">Cancelar</a>
+            <button class="btn btn-danger" type="submit">Sí, eliminar cita</button>
+        </div>
+    </form>
+</section>
+{% endblock %}

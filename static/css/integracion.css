@@ -1,0 +1,158 @@
+/* Ajustes de integración Django + shell Odd Atelier */
+body.django-shell {
+    margin: 0;
+}
+
+body.django-shell .sidebar {
+    display: block;
+}
+
+body.django-shell .sidebar .menu-item {
+    text-decoration: none;
+}
+
+body.django-shell .main-content {
+    display: block;
+    min-height: 100vh;
+}
+
+.django-messages {
+    list-style: none;
+    margin: 0 0 18px;
+    padding: 0;
+}
+
+.django-messages li {
+    padding: 12px 14px;
+    border-radius: 10px;
+    margin-bottom: 8px;
+    font-size: 13px;
+}
+
+.django-messages .success {
+    background: var(--success-soft);
+    color: var(--success);
+}
+
+.django-messages .error {
+    background: var(--danger-soft);
+    color: var(--danger);
+}
+
+.badge-mysql {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: var(--ruby-soft);
+    color: var(--ruby);
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.badge-local {
+    display: inline-flex;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: #eee;
+    color: var(--gray-600);
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.integracion-note {
+    margin-bottom: 16px;
+    padding: 12px 14px;
+    border-radius: 12px;
+    border: 1px solid rgba(155, 0, 38, 0.14);
+    background: rgba(248, 233, 237, 0.65);
+    font-size: 13px;
+    color: var(--gray-700);
+}
+
+.legado-frame-wrap {
+    border: 1px solid rgba(11, 11, 11, 0.08);
+    border-radius: 16px;
+    overflow: hidden;
+    background: #fff;
+    min-height: 70vh;
+}
+
+.legado-frame-wrap iframe {
+    width: 100%;
+    min-height: 75vh;
+    border: 0;
+    display: block;
+    background: #fff;
+}
+
+.citas-django .form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.citas-django .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.citas-django .form-group.full {
+    grid-column: 1 / -1;
+}
+
+.citas-django .form-control {
+    min-height: 44px;
+    padding: 10px 12px;
+    border: 1px solid var(--gray-300);
+    border-radius: 10px;
+    font: inherit;
+}
+
+.citas-django .form-control:focus {
+    outline: none;
+    border-color: var(--ruby);
+    box-shadow: 0 0 0 3px rgba(155, 0, 38, 0.1);
+}
+
+.citas-django .errorlist {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    color: var(--danger);
+    font-size: 12px;
+}
+
+.citas-django .form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 18px;
+}
+
+.citas-django .pagination {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 18px;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 700px) {
+    .citas-django .form-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+body.django-shell .sidebar-logo-image {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+}
+body.django-shell .sidebar a.menu-item {
+    display: flex;
+    width: 100%;
+}

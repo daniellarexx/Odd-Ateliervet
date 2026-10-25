@@ -1,0 +1,28 @@
+{% extends "atelier/base.html" %}
+{% load static %}
+{% block title %}{{ page_title }} · Odd Atelier Vet{% endblock %}
+{% block content %}
+<div class="integracion-note">
+    <span class="badge-local">localStorage</span>
+    Este módulo pertenece a la interfaz original HTML/JS de Odd Atelier Vet.
+    Se abre dentro de la misma aplicación Django. Las <strong>Citas</strong>
+    del menú lateral sí usan <strong>MySQL</strong>.
+</div>
+
+<div class="card">
+    <div class="card-header">
+        <div>
+            <h2>{{ page_title }}</h2>
+            <p>{{ page_description }}</p>
+        </div>
+        <a class="btn btn-primary" href="{% url 'citas:lista' %}">Ir a Citas (MySQL)</a>
+    </div>
+    <div class="legado-frame-wrap">
+        <iframe
+            title="Módulo Odd Atelier {{ seccion_legado }}"
+            src="{% static 'odd/legado.html' %}?section={{ seccion_legado }}"
+            loading="lazy"
+        ></iframe>
+    </div>
+</div>
+{% endblock %}

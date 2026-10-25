@@ -1,0 +1,12 @@
+{% extends "atelier/base.html" %}
+{% block title %}{% block citas_title %}Citas · Odd Atelier Vet{% endblock %}{% endblock %}
+{% block content %}
+<div class="citas-django">
+    <div class="integracion-note">
+        <span class="badge-mysql"><i class="fa-solid fa-database"></i> MySQL + Django</span>
+        Módulo de citas integrado en Odd Atelier Vet. Los datos se persisten en la base de datos
+        (no en localStorage).
+    </div>
+    {% block citas_content %}{% endblock %}
+</div>
+{% endblock %}

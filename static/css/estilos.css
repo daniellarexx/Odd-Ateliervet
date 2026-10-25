@@ -1,0 +1,257 @@
+/* =========================================================
+   ODD ATELIER VET - ESTILOS.CSS
+   ========================================================= */
+
+
+/* =========================================================
+   1. VARIABLES
+   ========================================================= */
+
+:root {
+    --ruby: #9b0026;
+    --ruby-dark: #650019;
+    --ruby-light: #c4143d;
+    --ruby-soft: #f8e9ed;
+
+    --black: #0b0b0b;
+    --black-soft: #151515;
+
+    --white: #ffffff;
+    --cream: #faf9f7;
+
+    --gray-100: #f5f5f5;
+    --gray-200: #e9e9e9;
+    --gray-300: #d6d6d6;
+    --gray-400: #aaaaaa;
+    --gray-500: #777777;
+    --gray-600: #555555;
+    --gray-700: #333333;
+
+    --success: #218739;
+    --success-soft: #e7f5ea;
+
+    --warning: #b77900;
+    --warning-soft: #fff4d6;
+
+    --danger: #c62828;
+    --danger-soft: #fdeaea;
+
+    --info: #2468a8;
+    --info-soft: #e7f1fb;
+
+    --shadow-sm: 0 3px 12px rgba(0, 0, 0, 0.06);
+    --shadow-md: 0 8px 25px rgba(0, 0, 0, 0.09);
+    --shadow-lg: 0 15px 45px rgba(0, 0, 0, 0.14);
+
+    --radius-sm: 8px;
+    --radius-md: 14px;
+    --radius-lg: 20px;
+
+    --transition: all 0.25s ease;
+
+    /* NUEVO: ancho del menú */
+    --sidebar-width: 260px;
+    --sidebar-collapsed-width: 78px;
+}
+
+/* Estilos del módulo Django Citas — coherente con Odd Atelier Vet */
+body {
+    margin: 0;
+    font-family: "DM Sans", Arial, sans-serif;
+    background:
+        radial-gradient(ellipse 70% 45% at 100% -10%, rgba(155, 0, 38, 0.08), transparent 55%),
+        #f3f1f2;
+    color: var(--black);
+    min-height: 100vh;
+}
+
+a { color: inherit; text-decoration: none; }
+* { box-sizing: border-box; }
+
+.shell {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 28px 20px 48px;
+}
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(11,11,11,0.08);
+}
+
+.brand {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.brand strong {
+    font-family: Georgia, "Bodoni Moda", serif;
+    font-size: 24px;
+}
+
+.brand span {
+    color: var(--ruby);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+}
+
+.card {
+    background: rgba(255,255,255,0.92);
+    border: 1px solid rgba(11,11,11,0.08);
+    border-radius: 16px;
+    padding: 22px;
+    box-shadow: 0 12px 30px rgba(11,11,11,0.05);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 18px;
+    flex-wrap: wrap;
+}
+
+.card-header h1 {
+    margin: 0;
+    font-family: Georgia, serif;
+    font-size: 28px;
+}
+
+.card-header p {
+    margin: 6px 0 0;
+    color: var(--gray-500);
+    font-size: 13px;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 42px;
+    padding: 0 16px;
+    border: none;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background: linear-gradient(120deg, var(--ruby-light), var(--ruby) 50%, var(--ruby-dark));
+    color: #fff;
+    box-shadow: 0 10px 22px rgba(155,0,38,0.22);
+}
+
+.btn-secondary {
+    background: #fff;
+    border: 1px solid var(--gray-300);
+    color: var(--gray-700);
+}
+
+.btn-danger {
+    background: var(--danger);
+    color: #fff;
+}
+
+.table-wrap { overflow-x: auto; border: 1px solid var(--gray-200); border-radius: 12px; }
+table { width: 100%; border-collapse: collapse; min-width: 720px; }
+th {
+    text-align: left;
+    padding: 12px 14px;
+    background: #f7f5f6;
+    font-size: 11px;
+    letter-spacing: 0.7px;
+    text-transform: uppercase;
+    color: var(--gray-500);
+}
+td {
+    padding: 13px 14px;
+    border-top: 1px solid var(--gray-100);
+    font-size: 13px;
+}
+.actions { display: flex; gap: 8px; flex-wrap: wrap; }
+.actions a, .actions button {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--ruby);
+}
+.actions .danger { color: var(--danger); }
+
+.messages { list-style: none; padding: 0; margin: 0 0 16px; }
+.messages li {
+    padding: 12px 14px;
+    border-radius: 10px;
+    margin-bottom: 8px;
+    font-size: 13px;
+}
+.messages .success { background: var(--success-soft); color: var(--success); }
+.messages .error { background: var(--danger-soft); color: var(--danger); }
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+}
+.form-group { display: flex; flex-direction: column; gap: 7px; }
+.form-group.full { grid-column: 1 / -1; }
+.form-group label { font-size: 12px; font-weight: 700; color: var(--gray-700); }
+.form-control {
+    min-height: 44px;
+    padding: 10px 12px;
+    border: 1px solid var(--gray-300);
+    border-radius: 10px;
+    font: inherit;
+}
+.form-control:focus {
+    outline: none;
+    border-color: var(--ruby);
+    box-shadow: 0 0 0 3px rgba(155,0,38,0.1);
+}
+.errorlist {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    color: var(--danger);
+    font-size: 12px;
+}
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 18px;
+}
+.pagination {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 18px;
+    flex-wrap: wrap;
+}
+.badge {
+    display: inline-flex;
+    padding: 4px 9px;
+    border-radius: 999px;
+    background: var(--ruby-soft);
+    color: var(--ruby);
+    font-size: 11px;
+    font-weight: 700;
+}
+.empty {
+    text-align: center;
+    padding: 36px 16px;
+    color: var(--gray-500);
+}
+@media (max-width: 700px) {
+    .form-grid { grid-template-columns: 1fr; }
+}

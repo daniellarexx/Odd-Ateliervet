@@ -1,0 +1,83 @@
+{% extends "atelier/base.html" %}
+{% block title %}Dashboard · Odd Atelier Vet{% endblock %}
+{% block content %}
+<div class="welcome-card">
+    <div class="welcome-content">
+        <p class="welcome-kicker">Panel principal</p>
+        <h2>Bienvenido a <span>Odd Atelier Vet</span></h2>
+        <p>
+            Aplicación unificada: el menú <strong>Citas</strong> usa
+            <strong>Django + MySQL</strong>. El resto de módulos conserva
+            la interfaz Odd Atelier con almacenamiento local (localStorage)
+            hasta futuras migraciones.
+        </p>
+    </div>
+</div>
+
+<div class="stats-grid" style="margin-top:18px;">
+    <div class="stat-card">
+        <div class="stat-icon"><i class="fa-regular fa-calendar"></i></div>
+        <div class="stat-info">
+            <span>Citas en MySQL</span>
+            <strong>{{ total_citas }}</strong>
+        </div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-icon"><i class="fa-solid fa-database"></i></div>
+        <div class="stat-info">
+            <span>Backend</span>
+            <strong style="font-size:18px;">Django</strong>
+        </div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-icon"><i class="fa-solid fa-paw"></i></div>
+        <div class="stat-info">
+            <span>Otros módulos</span>
+            <strong style="font-size:16px;">localStorage</strong>
+        </div>
+    </div>
+</div>
+
+<div class="card" style="margin-top:18px;">
+    <div class="card-header">
+        <div>
+            <h2>Últimas citas (MySQL)</h2>
+            <p>Datos persistidos en la base de datos</p>
+        </div>
+        <a class="btn btn-primary" href="{% url 'citas:lista' %}">Ver todas →</a>
+    </div>
+    {% if citas_recientes %}
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Mascota</th>
+                    <th>Propietario</th>
+                    <th>Fecha</th>
+                    <th>Hora</th>
+                    <th>Estado</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for cita in citas_recientes %}
+                <tr>
+                    <td>{{ cita.mascota }}</td>
+                    <td>{{ cita.propietario }}</td>
+                    <td>{{ cita.fecha|date:"d/m/Y" }}</td>
+                    <td>{{ cita.hora|time:"H:i" }}</td>
+                    <td><span class="badge-mysql">{{ cita.estado }}</span></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% else %}
+    <div class="empty-state" style="padding:32px;text-align:center;color:#777;">
+        Aún no hay citas en MySQL.
+        <div style="margin-top:12px;">
+            <a class="btn btn-primary" href="{% url 'citas:crear' %}">Registrar cita</a>
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

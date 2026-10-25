@@ -1,0 +1,23 @@
+ODD ATELIER VET — ENTREGA SENA
+Evidencia: Módulos de software codificados y probados
+
+Una sola app: http://127.0.0.1:8000/
+- Citas → Django + MySQL (CRUD, validaciones, paginación 10)
+- Otros módulos del menú → misma app, localStorage (pendiente migrar)
+
+Archivos a subir / entregar:
+1) documento-entrega-citas-django.docx  (pegar URL_DEL_REPOSITORIO)
+2) odd-atelier-vet.zip
+3) Completar ítem GitHub (ver CHECKLIST-ENTREGA.md)
+
+Arranque rápido:
+cp .env.example .env
+docker compose --env-file .env up -d
+python -m venv .venv && activar
+pip install -r requirements.txt
+python manage.py migrate
+python manage.py seed_citas
+python manage.py runserver 8000
+python manage.py test citas
+
+Carpeta Windows: C:\Users\danie\Desktop\base-datos-Odd-Atelier-Vet
